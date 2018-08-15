@@ -1,7 +1,7 @@
 places:
 
   start:
-    description: 'You wake up in a dark room. The air feels stale. You see a flicker of light breaching through a nearby door gap. You see two buttons on a wall next to you: one is blue and the other red.'
+    description: 'You're on a dark and gloomy battlefield. The air feels stale. You hear cascading clashes in the distances and arrows passing by your head. One hits your helmet and you get knocked out. You wake up and see two buttons on a wall next to you: one is blue and the other red.'
     instructions: 'To push the blue button, say 1. To push the red button, say 2. To exit the room through the door, say 3.'
     finished: false
     choices:
@@ -58,7 +58,7 @@ places:
         - goto: room2-red-pushed
 
   room1-poison:
-    description: 'You hear an engine starting up and before you know it, the room fills with toxic air, and you suffocate.'
+    description: 'You hear metal clanging towards you. Before you know it, one of the guards thrusts his sword through your chest, and you suffocate in your own blood.'
     instructions: 'You may say "restart" to start over or say "leave" to end the adventure.'
     finished: true
     choices:
@@ -77,7 +77,7 @@ places:
         - goto: room1-awake
 
   room2-red-pushed:
-    description: 'You are in dimly lit room. The air feels a bit fresher. Aside from the door you came in through, there is an open gate. A light breeze is coming from the gate.'
+    description: 'You are in dimly lit room. The air looses the stench of blood and smells a bit fresher. Aside from the door you came in through, there is an open gate. A light breeze is coming from the gate.'
     instructions: 'To go back to the previous room, say 1. To go through the gate, say 2.'
     finished: false
     choices:
@@ -88,8 +88,38 @@ places:
         - say: You walk through the gate.
         - goto: end-room-good
 
+  room3:
+    description: 'Your eyes adjust to a small fire directly in front of you. There are two enemies huddled around the fire and one of them starts approaching you.'
+    instruction: 'To stand still, say 1. To attack, say 2. To make a run for it, say 3.'
+    finished: false
+    choices:
+      one:
+        - say: The guard walks directly past you to take a piss. He sulks back to the fire and resumes his huddle position.
+        - goto: room4
+      two:
+        - say: You grab a rock nearby and slug the guard in the head. The guard stumbles to the ground. The second guard is caught off guard.
+        - goto: room4
+      three: 
+        - say: You sprint past the guard walking towards you and around the guard huddled by the fire. They immediately sound the alarm. You bump into a group of guards that bop you on the head with a club.
+        - goto: room1-poison
+
+  room4:
+    description: 'You are one on one with the second guard. He seems deep in thought and regretting his existence. What will you do?'
+    instruction: 'To tell him to let you go, say 1. To attack, say 3. To make a run for it, say 3.'
+    finished: false
+    choices:
+      one:
+        - say: He stares at your blankly. Then turns to huddle around the fire. You thankfully walk towards the next entry.
+        - goto: end-room-good
+      two:
+        - say: You start running towards the second guard and tackle him into the fire. His head hits some cobble stone brick on his way down and dies.
+        - goto: end-room-good
+      three: 
+        - say: You sprint past the guard to the next entry. You bump into a group of guards that bop you on the head with a club.
+        - goto: room1-poison
+
   end-room-good:
-    description: 'You found the exit! Congratulations!'
+    description: 'You found your way to an open road! Congratulations, you have escaped!'
     instructions: 'You may say "restart" to start over or say "leave" to end the adventure.'
     finished: true
     choices:
